@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  host_name: MyString
+  host_email: MyString
+  numgsts: 1
+  guest_names: MyText
+  venue: MyString
+  location: MyString
+  theme: MyString
+  when: 2017-02-09 17:53:18
+  when_its_over: 2017-02-09 17:53:18
+  descript: MyText
+
+two:
+  id: 1
+  host_name: MyString
+  host_email: MyString
+  numgsts: 1
+  guest_names: MyText
+  venue: MyString
+  location: MyString
+  theme: MyString
+  when: 2017-02-09 17:53:18
+  when_its_over: 2017-02-09 17:53:18
+  descript: MyText
