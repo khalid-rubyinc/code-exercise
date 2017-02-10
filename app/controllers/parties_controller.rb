@@ -20,12 +20,13 @@ class PartiesController < ApplicationController
   end
 
   def create
+    params.permit!
+
     @party = Party.new
     if params[:party][:numgsts].blank?
       params[:party][:numgsts]=0
     end
 
-    params.permit!
     @party.attributes = params[:party]
 
     if @party.save
