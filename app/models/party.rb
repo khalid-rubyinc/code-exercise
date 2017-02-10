@@ -25,7 +25,7 @@ class Party < ApplicationRecord
       errors.add(:base, "Input was too long.")
     end
     # ruby doesn't like us using when as column name for some reason
-    if self[:when]>when_its_over
+    if self[:when_at]>when_its_over
       errors.add(:base, "Incorrect party time.")
     end
     if numgsts.nil?

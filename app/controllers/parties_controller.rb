@@ -25,18 +25,21 @@ class PartiesController < ApplicationController
       params[:party][:numgsts]=0
     end
 
+    params.permit!
     @party.attributes = params[:party]
 
     if @party.save
       # if end is blank, set to end of day
       if @party.when_its_over.blank?
-        @party.when_its_over=@party.when.end_of_day
+        @party.when_its_over=@party.when_at.end_of_day
         @party.save
       end
       @party.after_save
+      flash[:notice] = 'Success'
       redirect_to parties_url
     else
-      flash[:notice]="Party was incorrect."
+      flash[:error] = @party.errors.full_messages.join("<br/>")
+      flash[:notice] = "Party was incorrect.<br/>"
       redirect_to new_party_url
     end
   end
