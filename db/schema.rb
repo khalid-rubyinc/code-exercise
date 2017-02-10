@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170209225313) do
     t.string   "venue"
     t.string   "location"
     t.string   "theme"
-    t.datetime "when"
+    t.datetime "when_at"
     t.datetime "when_its_over"
     t.text     "descript"
     t.datetime "created_at",    null: false

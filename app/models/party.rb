@@ -13,26 +13,29 @@
 # when_its_over - datetime     - default NULL
 # descript      - text         - default NULL
 #
+# When is a reserved word in postgresql
+# https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
+
 class Party < ApplicationRecord
 
   validate :validations
 
   def validations
     if host_name.length<255 || host_email.length<255 || venue.length<255 || location.size<255 || theme.size<255
-      errors.add(:base,"Input was too long.")
+      errors.add(:base, "Input was too long.")
     end
     # ruby doesn't like us using when as column name for some reason
     if self[:when]>when_its_over
-      errors.add(:base,"Incorrect party time.")
+      errors.add(:base, "Incorrect party time.")
     end
     if numgsts.nil?
       numgsts = 0
     end
     if venue.length > 0 && location.length < 0
-      errors.add(:location,"Where is the party?")
+      errors.add(:location, "Where is the party?")
     end
     if guest_names.split(',').size != numgsts
-      errors.add(:guest_names,"Missing guest name")
+      errors.add(:guest_names, "Missing guest name")
     end
   end
 

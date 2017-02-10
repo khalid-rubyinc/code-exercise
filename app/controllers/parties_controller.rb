@@ -8,7 +8,7 @@ class PartiesController < ApplicationController
         @parties << party
       end
     else
-      order = "when #{(params[:asc].blank? || params[:asc] == 'true') ? 'DESC' : 'ASC'}"
+      order = "when_at #{(params[:asc].blank? || params[:asc] == 'true') ? 'DESC' : 'ASC'}"
       @parties = Party.order(order).all
     end
   end
